@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #f3a6c8;
+  --pink-dark: #df78aa;
+  --pink-light: #fff0f7;
+  --purple: #b8a4e8;
+  --purple-light: #f3efff;
+  --green: #a8d5ba;
+  --green-dark: #6eae87;
+  --text: #5c5266;
+  --white: #ffffff;
+  --shadow: 0 8px 20px rgba(170, 120, 160, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text);
+
+  background:
+    radial-gradient(circle at 10% 20%, #ffdff0 0 70px, transparent 71px),
+    radial-gradient(circle at 90% 80%, #e8ddff 0 90px, transparent 91px),
+    linear-gradient(135deg, #fff8fc, #f8f5ff);
+}
+
+
+#root {
+  min-height: 100vh;
+}
+
+#root > div {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+
+h1 {
+  margin: 0 0 25px;
+  padding: 18px 25px;
+
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+
+  color: var(--pink-dark);
+  background: rgba(255, 255, 255, 0.85);
+
+  border: 2px solid #f7c6dd;
+  border-radius: 20px;
+
+  box-shadow: var(--shadow);
+}
+
+
+h1::before {
+  content: '♡ ';
+}
+
+h1::after {
+  content: ' ♡';
+}
+
+#root > div > div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+#root > div > div button {
+  padding: 10px 18px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: var(--text);
+  background: var(--white);
+
+  border: 2px solid #ead9e5;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#root > div > div button:hover {
+  transform: translateY(-2px);
+  background-color: var(--pink-light);
+  border-color: #f3a6c8;
+  box-shadow: 0 5px 12px rgba(223, 120, 170, 0.2);
+}
+
+#root > div > div button:active {
+  transform: scale(0.97);
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Karta filmu */
+
+.movie-card {
+  position: relative;
+
+  padding: 24px;
+  margin: 14px 0;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 2px solid #ead9e5;
+  border-radius: 22px;
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.movie-card::before {
+  content: '🎬';
+
+  position: absolute;
+  top: 18px;
+  right: 20px;
+
+  font-size: 22px;
+}
+
+.movie-card:hover {
+  transform: translateY(-3px);
+  border-color: #f3b5d2;
+  box-shadow: 0 12px 25px rgba(170, 120, 160, 0.2);
+}
+
+
+.movie-card.watched {
+  background: linear-gradient(135deg, #f0fff5, #fafffc);
+  border-color: var(--green);
+}
+
+.movie-card.watched::before {
+  content: '🌸';
+}
+
+
+.movie-card h2 {
+  margin: 0 40px 10px 0;
+
+  color: #765b76;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.movie-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #817487;
+}
+
+
+.movie-card button {
+  margin-top: 15px;
+
+  padding: 10px 16px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  color: white;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(180, 130, 190, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.movie-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(180, 130, 190, 0.3);
+}
+
+.movie-card button:active {
+  transform: scale(0.96);
+}
+
+
+.movie-card.watched button {
+  background: linear-gradient(135deg, var(--green), #91cbaa);
+}
+
+
+@media (max-width: 600px) {
+  #root > div {
+    width: 90%;
+    padding: 30px 0;
+  }
+
+  h1 {
+    font-size: 20px;
+    padding: 16px;
+  }
+
+  .movie-card {
+    padding: 20px;
+  }
+
+  .movie-card h2 {
+    font-size: 19px;
+  }
+}
+
+/* Ocena filmu */
+
+.rating {
+  margin-top: 18px;
+  padding: 12px 15px;
+
+  background: #fff7fb;
+  border: 1px solid #f3d8e6;
+  border-radius: 16px;
+}
+
+.rating-label {
+  display: block;
+  margin-bottom: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #8b7185;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, sans-serif;
+  font-size: 28px !important;
+  line-height: 1;
+
+  color: #dfd5df !important;
+  background: transparent !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  cursor: pointer;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.star:hover {
+  color: #f4b5cf !important;
+  transform: scale(1.15);
+}
+
+.star.active {
+  color: #f3a6c8 !important;
+}
+
+.star.active:hover {
+  color: #e88bb5 !important;
+}
+
+
+.movie-card.watched .rating {
+  background: #f5fff8;
+  border-color: #cce8d6;
+}
+
+.movie-card.watched .star.active {
+  color: #e6a8c5 !important;
+}
+
+.empty-message {
+  margin: 40px auto;
+  padding: 30px 20px;
+
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #b4779a;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 2px dashed #efb8d2;
+  border-radius: 22px;
+
+  box-shadow: var(--shadow);
+
+  animation: kawaiiAppear 0.3s ease;
+}
+
+@keyframes kawaiiAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
